@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function message()
+    {
+        return $this->belongsToMany(User::class, 'messages', 'user_id', 'chat_user_id')->withTimestamps();
+    }
 }
